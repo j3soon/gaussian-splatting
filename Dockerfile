@@ -12,6 +12,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ENV TORCH_CUDA_ARCH_LIST="3.5;5.0;6.0;6.1;7.0;7.5;8.0;8.6+PTX"
 
+ENV NVIDIA_DRIVER_CAPABILITIES=all
+
 # Update and install tzdata separately
 RUN apt update && apt install -y tzdata
 
