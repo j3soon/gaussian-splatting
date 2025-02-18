@@ -1,4 +1,7 @@
 # 3D Gaussian Splatting for Real-Time Radiance Field Rendering
+
+[<img src="https://img.shields.io/badge/dockerhub-image-important.svg?logo=docker">](https://hub.docker.com/r/j3soon/gaussian_splatting/tags)
+
 Bernhard Kerbl*, Georgios Kopanas*, Thomas Leimkühler, George Drettakis (* indicates equal contribution)<br>
 | [Webpage](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) | [Full Paper](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/3d_gaussian_splatting_high.pdf) | [Video](https://youtu.be/T_kXY43VZnk) | [Other GRAPHDECO Publications](http://www-sop.inria.fr/reves/publis/gdindex.php) | [FUNGRAPH project page](https://fungraph.inria.fr) |<br>
 | [T&T+DB COLMAP (650MB)](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/datasets/input/tandt_db.zip) | [Pre-trained Models (14 GB)](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/datasets/pretrained/models.zip) | [Viewers for Windows (60MB)](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/binaries/viewers.zip) | [Evaluation Images (7 GB)](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/evaluation/images.zip) |<br>
@@ -64,7 +67,10 @@ Build your docker image from the Dockerfile and run it with GPU enabled.
 ```sh
 # cd into this repository
 cd gaussian_splatting
-docker build -t gaussian_splatting .
+# pull the image
+docker pull j3soon/gaussian_splatting
+# or build the image (this takes a while)
+docker build -t j3soon/gaussian_splatting .
 # cd into the data directory (containing `cfg_args`)
 cd <PATH_TO_DATA>
 xhost +local:docker
@@ -74,7 +80,7 @@ docker run --rm -it --gpus all --name gaussian_splatting \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v $HOME/.Xauthority:/root/.Xauthority \
   -v $(pwd):/workspace/data \
-  gaussian_splatting:latest bash
+  j3soon/gaussian_splatting:latest bash
 # in the container, run the viewer:
 /workspace/gaussian-splatting/SIBR_viewers/install/bin/SIBR_gaussianViewer_app -m /workspace/data
 ```
