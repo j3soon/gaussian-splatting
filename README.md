@@ -70,7 +70,7 @@ cd gaussian_splatting
 # pull the image
 docker pull j3soon/gaussian_splatting
 # or build the image (this takes a while)
-docker build -t j3soon/gaussian_splatting .
+docker build -t j3soon/gaussian_splatting:bg-img-forward .
 # cd into the data directory (containing `cfg_args`)
 cd <PATH_TO_DATA>
 xhost +local:docker

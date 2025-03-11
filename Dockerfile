@@ -24,7 +24,7 @@ RUN apt install -y git && \
 
 # Create a workspace directory and clone the repository
 WORKDIR /workspace
-RUN git clone -b docker https://github.com/j3soon/gaussian-splatting --recursive
+RUN git clone -b bg-img-forward https://github.com/j3soon/gaussian-splatting --recursive
 
 # Create a Conda environment and activate it
 WORKDIR /workspace/gaussian-splatting
